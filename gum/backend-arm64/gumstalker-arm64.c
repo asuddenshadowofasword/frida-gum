@@ -2154,7 +2154,7 @@ gum_exec_ctx_new (GumStalker * stalker,
   GumSlowSlab * slow_slab;
   GumDataSlab * data_slab;
 
-  base = gum_memory_allocate (NULL, stalker->ctx_size, stalker->page_size,
+  base = gum_memory_allocate (NULL, INT32_MAX, stalker->page_size,
       stalker->is_rwx_supported ? GUM_PAGE_RWX : GUM_PAGE_RW);
 
   ctx = (GumExecCtx *) base;
