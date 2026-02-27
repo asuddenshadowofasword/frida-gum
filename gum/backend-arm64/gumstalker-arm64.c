@@ -2321,7 +2321,7 @@ gum_exec_ctx_compute_code_address_spec (GumExecCtx * ctx,
 
   /* Code must be able to reference ExecCtx fields using 32-bit offsets. */
   spec->near_address = ctx;
-  spec->max_distance = G_MAXINT32 - stalker->ctx_size - slab_size;
+  spec->max_distance = 0xffffffffffffffff;
 }
 
 static void
@@ -2333,7 +2333,7 @@ gum_exec_ctx_compute_data_address_spec (GumExecCtx * ctx,
 
   /* Code must be able to reference ExecBlock fields using 32-bit offsets. */
   spec->near_address = ctx->code_slab;
-  spec->max_distance = G_MAXINT32 - stalker->code_slab_size_dynamic - slab_size;
+  spec->max_distance = 0xffffffffffffffff;
 }
 
 static gboolean
